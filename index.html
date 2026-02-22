@@ -80,40 +80,45 @@
         /* ========== NAVBAR ========== */
         .navbar {
             position: fixed;
-            top: 0;
+            top: 20px;
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 1.2rem 0;
+            padding: 0;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            background: transparent;
+            background: transparent !important;
         }
 
         .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            box-shadow: var(--shadow-md);
-            padding: 0.8rem 0;
+            top: 10px;
         }
 
         .navbar .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0.6rem 2.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: var(--white);
+            border-radius: 100px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .navbar.scrolled .container {
+            padding: 0.4rem 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
         }
 
         .navbar-brand {
             font-size: 1.75rem;
             font-weight: 800;
-            color: var(--white);
+            color: var(--dark) !important;
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #f093fb;
             transition: transform 0.3s ease;
         }
 
@@ -121,11 +126,25 @@
             transform: scale(1.05);
         }
 
+        .navbar-brand img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar.scrolled .navbar-brand img {
+            height: 38px;
+        }
+
+        .navbar-brand:hover img {
+            transform: translateY(-2px) rotate(-3deg) scale(1.05);
+        }
+
         .navbar.scrolled .navbar-brand {
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background: none !important;
+            -webkit-text-fill-color: initial !important;
+            color: var(--dark) !important;
         }
 
         .nav-menu {
@@ -136,9 +155,9 @@
         }
 
         .nav-link {
-            color: var(--white);
+            color: var(--dark) !important;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 0.95rem;
             position: relative;
             transition: all 0.3s ease;
@@ -173,13 +192,16 @@
         }
 
         .nav-cta {
-            background: var(--gradient-1);
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important;
             color: var(--white) !important;
             padding: 0.7rem 1.8rem;
-            border-radius: 50px;
+            border-radius: 12px !important;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .nav-cta:hover {
@@ -1685,7 +1707,7 @@
     <nav class="navbar" id="navbar">
         <div class="container">
             <a href="#" class="navbar-brand">
-                <i class="fas fa-rocket"></i>
+                <img src="./zenvy.png">
                 ZenvY
             </a>
             <ul class="nav-menu" id="navMenu">
@@ -1693,7 +1715,7 @@
                 <li><a href="#services" class="nav-link">Services</a></li>
                 <li><a href="#courses" class="nav-link">Courses</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#contact" class="nav-link nav-cta">Get Started</a></li>
+                <li><a href="#contact" class="nav-link nav-cta">Get Started <i class="fas fa-arrow-right"></i></a></li>
             </ul>
             <div class="mobile-toggle" id="mobileToggle">
                 <span></span>
@@ -1708,7 +1730,7 @@
         <div class="hero-container">
             <div class="hero-content">
                 <h1>
-                    Transform Your Business with <span class="highlight">Cutting-Edge</span> IT Solutions
+                    Transform Your Business with <span class="highlight">ZenvY</span> Solution
                 </h1>
                 <p>
                     We deliver innovative web development, cloud services, and digital transformation strategies that
